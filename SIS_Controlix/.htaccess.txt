@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /SIS_Controlix/
+    
+    # Redirigir index.php al root
+    RewriteCond %{THE_REQUEST} ^.*/index\.php
+    RewriteRule ^(.*)index\.php$ /$1 [R=301,L]
+    
+    # Amigables URLs
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php [QSA,L]
+</IfModule>
